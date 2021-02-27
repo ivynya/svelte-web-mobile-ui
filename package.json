@@ -26,6 +26,7 @@
   "dependencies": {
     "sass": "^1.32.8",
     "sirv-cli": "^1.0.0",
+    "svelte-language-server": "^0.12.15",
     "svelte-spa-router": "^3.1.0"
   }
 }
