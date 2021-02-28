@@ -2,7 +2,7 @@
 <script lang="ts">
   function closeSidebar(): void {
     // Gets the parent to scroll to the right, closing the sidebar.
-    document.getElementById("sidebar").parentElement.scrollBy(1, 0);
+    document.getElementById("sidebar").parentElement.scrollBy(260, 0);
   }
 </script>
 

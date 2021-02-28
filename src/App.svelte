@@ -10,7 +10,7 @@
   onMount(() => {
     // This scrolls the view to hide the sidebar on load.
     const content = document.getElementById("content");
-    content.scrollBy(1, 0); // Only 1px is needed because of scroll-snap.
+    content.scrollBy(260, 0); // Scroll by width of sidebar
     content.style.scrollBehavior = "smooth";
   });
 </script>
