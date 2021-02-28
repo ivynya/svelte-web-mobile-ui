@@ -1,6 +1,15 @@
 
-<div class="sidebar">
-  <h2>Sidebar</h2>
+<script lang="ts">
+  function closeSidebar(): void {
+    // Gets the parent to scroll to the right, closing the sidebar.
+    document.getElementById("sidebar").parentElement.scrollBy(1, 0);
+  }
+</script>
+
+<div id="sidebar">
+  <a name="sidebar">
+    <h2>Sidebar</h2>
+  </a>
   <p><b>Sidebar Group 1</b></p>
   <p>Sidebar Item 1</p>
   <p>Sidebar Item 2</p>
@@ -10,10 +19,12 @@
   <p>Sidebar Item 1</p>
   <p>Sidebar Item 2</p>
   <p>Sidebar Item 3</p>
+  <br>
+  <button on:click="{closeSidebar}">Close Sidebar with JS</button>
 </div>
 
 <style lang="scss">
-  .sidebar {
+  #sidebar {
     background-color: #eee;
     min-width: 200px;
     padding: 0 30px;

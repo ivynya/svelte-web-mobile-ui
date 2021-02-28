@@ -1,18 +1,24 @@
 
 <script lang="ts">
+  import { onMount } from 'svelte';
   import Router from 'svelte-spa-router';
   import { routes } from './routes';
 
   import Navbar from './components/Navbar.svelte';
   import Sidebar from './components/Sidebar.svelte';
+
+  onMount(() => {
+    // This scrolls the view to hide the sidebar on load.
+    const content = document.getElementById("content");
+    content.scrollBy(1, 0); // Only 1px is needed because of scroll-snap.
+    content.style.scrollBehavior = "smooth";
+  });
 </script>
 
 <div class="app">
-  <div class="content">
+  <div id="content">
     <Sidebar />
-    <main>
-      <Router {routes} />
-    </main>
+    <main><Router {routes} /></main>
   </div>
   <Navbar />
 </div>
@@ -27,12 +33,11 @@
     height: 100%;
   }
   
-	.content {
+	#content {
     display: flex;
     flex: 1 1;
     overflow: scroll;
     scroll-snap-type: x mandatory;
-		text-align: center;
     width: 100%;
 
     scrollbar-width: none;
@@ -42,8 +47,10 @@
 	}
 
   main {
+    max-height: 100%;
     min-width: 100%;
-    scroll-snap-align: center;
+    overflow: auto;
+    scroll-snap-align: end;
     scroll-snap-stop: always;
   }
 </style>
