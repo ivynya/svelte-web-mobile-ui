@@ -3,6 +3,13 @@
 
 This is a demonstration of a native-esque sidebar flyout and mobile UI built using Svelte (a web framework). There are differences, but this has a similar UX while having zero dependencies and relying solely on built in browser features. This means it has a miniscule impact on app size and is super easy to work with. Although this sample uses Svelte, the core principle can be done with vanilla HTML/CSS/JS and translates easily to other frameworks.
 
+## This repo contains:
+
+- [x] Trackpad and touch-compatible sidebar
+- [x] Native-esque bottom navigation
+- [x] [svelte-spa-router](https://github.com/ItalyPaleAle/svelte-spa-router)
+- [ ] A webmanifest file (for PWAs; can be easily added)
+
 ## How does it work?
 
 A bottom navigation bar that uses hash routing is included to demonstrate multiple pages in an app. The sidebar is global, and makes use of browser scroll properties (scroll-snap, and scroll-behavior) to open. Main content is set to 100% width and scripting is used to shift the page's scroll on initial load. The impact of this is small since the page is only loaded once (being an SPA) and can be reduced if using other optimization techniques like hydration.
