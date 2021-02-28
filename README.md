@@ -1,105 +1,18 @@
-*Looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
 
----
+# Svelte Web/Mobile UI Demo
 
-# svelte app
+This is a demonstration of a native-esque sidebar flyout and mobile UI built using Svelte (a web framework). There are differences, but this has a similar UX while having zero dependencies and relying solely on built in browser features. This means it has a miniscule impact on app size and is super easy to work with. Although this sample uses Svelte, the core principle can be done with vanilla HTML/CSS/JS and translates easily to other frameworks.
 
-This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
+## How does it work?
 
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
+A bottom navigation bar that uses hash routing is included to demonstrate multiple pages in an app. The sidebar is global, and makes use of browser scroll properties (scroll-snap, and scroll-behavior) to open. Main content is set to 100% width and scripting is used to shift the page's scroll on initial load. The impact of this is small since the page is only loaded once (being an SPA) and can be reduced if using other optimization techniques like hydration.
 
-```bash
-npx degit sveltejs/template svelte-app
-cd svelte-app
-```
+## What benefits does this method have?
 
-*Note that you will need to have [Node.js](https://nodejs.org) installed.*
+As the sidebar uses scroll to show and hide itself, trackpad and touch gestures work out of the box. Only one line of JS is needed to alter the state by setting the scroll X position of the container. This can be wrapped into an event/state management system if desired, but it's extremely lightweight and can make use of the browser's built in smooth scrolling. It's (theoretically) an ideal solution for an uncomplicated flyout sidebars for PWAs or other web apps.
 
+This demo has been tested on Webkit, Blink, and Gecko browsers but because this is an idea that I threw together really fast, it might have issues I didn't catch. You have been warned! 👻
 
-## Get started
+## Try it Yourself
 
-Install the dependencies...
-
-```bash
-cd svelte-app
-npm install
-```
-
-...then start [Rollup](https://rollupjs.org):
-
-```bash
-npm run dev
-```
-
-Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
-
-By default, the server will only respond to requests from localhost. To allow connections from other computers, edit the `sirv` commands in package.json to include the option `--host 0.0.0.0`.
-
-If you're using [Visual Studio Code](https://code.visualstudio.com/) we recommend installing the official extension [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode). If you are using other editors you may need to install a plugin in order to get syntax highlighting and intellisense.
-
-## Building and running in production mode
-
-To create an optimised version of the app:
-
-```bash
-npm run build
-```
-
-You can run the newly built app with `npm run start`. This uses [sirv](https://github.com/lukeed/sirv), which is included in your package.json's `dependencies` so that the app will work when you deploy to platforms like [Heroku](https://heroku.com).
-
-
-## Single-page app mode
-
-By default, sirv will only respond to requests that match files in `public`. This is to maximise compatibility with static fileservers, allowing you to deploy your app anywhere.
-
-If you're building a single-page app (SPA) with multiple routes, sirv needs to be able to respond to requests for *any* path. You can make it so by editing the `"start"` command in package.json:
-
-```js
-"start": "sirv public --single"
-```
-
-## Using TypeScript
-
-This template comes with a script to set up a TypeScript development environment, you can run it immediately after cloning the template with:
-
-```bash
-node scripts/setupTypeScript.js
-```
-
-Or remove the script via:
-
-```bash
-rm scripts/setupTypeScript.js
-```
-
-## Deploying to the web
-
-### With [Vercel](https://vercel.com)
-
-Install `vercel` if you haven't already:
-
-```bash
-npm install -g vercel
-```
-
-Then, from within your project folder:
-
-```bash
-cd public
-vercel deploy --name my-project
-```
-
-### With [surge](https://surge.sh/)
-
-Install `surge` if you haven't already:
-
-```bash
-npm install -g surge
-```
-
-Then, from within your project folder:
-
-```bash
-npm run build
-surge public my-project.surge.sh
-```
+[![https://maintained.cc/SDBagel/svelte-web-mobile-ui/1](https://maintained.cc/SDBagel/svelte-web-mobile-ui/1)](https://sdbagel.com/svelte-web-mobile-ui/)

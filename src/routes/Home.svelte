@@ -21,7 +21,7 @@
     On page load, three lines of JS scrolled the content view to the right
     (hiding the sidebar) and added a smooth scroll property (this is optional,
     only recommended if you plan to use hash fragments to open the sidebar).
-    Additionally, the <code>.scrollBy(1, 0)</code> function is used to open and close
+    Additionally, the <code>.scrollBy(260, 0)</code> function is used to open and close
     the sidebar using JS by scrolling the main view.
   </p>
   <h2>Learn More</h2>
