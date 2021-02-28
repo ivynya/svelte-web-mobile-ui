@@ -28,7 +28,7 @@
     background-color: #eee;
     min-width: 200px;
     padding: 0 30px;
-    scroll-snap-align: center;
+    scroll-snap-align: start;
     scroll-snap-stop: always;
     text-align: left;
   }
