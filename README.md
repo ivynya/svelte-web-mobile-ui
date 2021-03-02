@@ -8,7 +8,7 @@ This is a demonstration of a native-esque sidebar flyout and mobile UI built usi
 - [x] Trackpad and touch-compatible sidebar
 - [x] Native-esque bottom navigation
 - [x] [svelte-spa-router](https://github.com/ItalyPaleAle/svelte-spa-router)
-- [ ] A webmanifest file (for PWAs; can be easily added)
+- [ ] PWA support out-of-box (Needs icons, webmanifest, and service worker)
 
 ## How does it work?
 
