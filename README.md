@@ -1,9 +1,9 @@
 
 # Svelte Web/Mobile UI Demo
 
-This is a demonstration of a native-esque sidebar flyout and mobile UI built using Svelte (a web framework). There are differences, but this has a similar UX while having zero dependencies and relying solely on built in browser features. This means it has a miniscule impact on app size and is super easy to work with. Although this sample uses Svelte, the core principle can be done with vanilla HTML/CSS/JS and translates easily to other frameworks.
+This is a demonstration of a native-like sidebar flyout and mobile UI built using CSS scroll-snap. It primarily has the benefit of allowing users to use touch or trackpad gestures to open the sidebar like they would on a native app. The sidebar mechanism has zero dependencies, minimal JS presence and works on all major browsers. Although this template uses Svelte, the core principle can easily be done with vanilla HTML/CSS/JS and translates to other frameworks with miniscule impact on app size.
 
-## This repo contains:
+## This template contains:
 
 - [x] Trackpad and touch-compatible sidebar
 - [x] Native-esque bottom navigation
@@ -12,13 +12,21 @@ This is a demonstration of a native-esque sidebar flyout and mobile UI built usi
 
 ## How does it work?
 
-A bottom navigation bar that uses hash routing is included to demonstrate multiple pages in an app. The sidebar is global, and makes use of browser scroll properties (scroll-snap, and scroll-behavior) to open. Main content is set to 100% width and scripting is used to shift the page's scroll on initial load. The impact of this is small since the page is only loaded once (being an SPA) and can be reduced if using other optimization techniques like hydration.
+The sidebar is added globally through Svelte's layout page, with the main content placed alongside it horizontally. Both the main content and sidebar have [CSS scroll-snap](https://css-tricks.com/practical-css-scroll-snapping/) enabled so the user can use touch or trackpad scroll gestures to show and hide the sidebar.
+
+The main content is set to 100% of the view width, to ensure that when the sidebar is closed, it behaves like a completely normal page. In this demo, the sidebar is set to a fixed width of 260 pixels, but could theoretically be changed to either take up the entire screen when opened (100%) or another fixed width.
+
+Because the browser will load the layout with the sidebar open, 1-3 lines of scripting is used to instantaneously "close" the sidebar on page load. The impact of this is small compute-wise and on many browsers this will not cause layout shift.
 
 ## What benefits does this method have?
 
-As the sidebar uses scroll to show and hide itself, trackpad and touch gestures work out of the box. Only one line of JS is needed to alter the state by setting the scroll X position of the container. This can be wrapped into an event/state management system if desired, but it's extremely lightweight and can make use of the browser's built in smooth scrolling. It's (theoretically) an ideal solution for an uncomplicated flyout sidebars for PWAs or other web apps.
+- As the sidebar uses scroll to show and hide itself, trackpad and touch gestures work out of the box.
+- JavaScript `scrollBy` can be used to toggle the sidebar & element scroll properties can be used to check open/closed state.
+- No external animations are needed (CSS or JS), relies on browser smooth scrolling behavior.
+- It's an ideal solution for an uncomplicated flyout sidebars for PWAs or other mobile web apps.
+- The simplicity of using scroll-snap and native browser features means this can be easily expanded upon if desired.
 
-This demo has been tested on Webkit, Blink, and Gecko browsers but because this is an idea that I threw together really fast, it might have issues I didn't catch. You have been warned! 👻
+This demo has been tested on WebKit, Blink, and Gecko browsers but because this is an idea that I threw together really fast, it might have issues I didn't catch. You have been warned! 👻
 
 ## Try it Yourself
 
