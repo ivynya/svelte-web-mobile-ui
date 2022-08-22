@@ -30,4 +30,4 @@ This demo has been tested on WebKit, Blink, and Gecko browsers but because this 
 
 ## Try it Yourself
 
-[![https://maintained.cc/SDBagel/svelte-web-mobile-ui/1](https://maintained.cc/SDBagel/svelte-web-mobile-ui/1)](https://sdbagel.com/svelte-web-mobile-ui/)
+https://sdbagel.com/svelte-web-mobile-ui/
