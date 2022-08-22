@@ -4,12 +4,20 @@ name: CI and Deploy
 
 # Controls when the action will run. 
 on:
-  # Triggers the workflow on push but only for the main branch
   push:
     branches: [ main ]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -17,19 +25,25 @@ jobs:
   publish-pages:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: 14
-      
+          node-version: 16
       - run: npm ci
-      - run: git config user.name "SDBagel" && git config user.email "sdbagel@gmail.com"
+      - run: npm run build
       - run: npm run deploy
-      
-    env:
-      GH_TOKEN: ${{secrets.SECRET_GITHUB_TOKEN}}
+      - name: upload artifact
+        uses: actions/upload-pages-artifact@main
+        with:
+          name: github-pages
+          path: public
+          retention-days: 1
+      - name: deploy to pages
+        id: deployment
+        uses: actions/deploy-pages@v1
