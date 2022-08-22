@@ -37,7 +37,6 @@ jobs:
           node-version: 16
       - run: npm ci
       - run: npm run build
-      - run: npm run deploy
       - name: upload artifact
         uses: actions/upload-pages-artifact@main
         with:
