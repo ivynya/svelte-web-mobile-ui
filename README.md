@@ -30,4 +30,4 @@ This demo has been tested on WebKit, Blink, and Gecko browsers but because this 
 
 ## Try it Yourself
 
-https://sdbagel.com/svelte-web-mobile-ui/
+https://app.ivy.direct/svelte-web-mobile-ui/
